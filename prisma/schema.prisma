@@ -1,0 +1,104 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+enum PayStatus {
+  ACTIVE
+  INACTIVE
+  PENDING
+}
+
+enum Day {
+  SATURDAY
+  SUNDAY
+  MONDAY
+  TUESDAY
+  WEDNESDAY
+  THURSDAY
+  FRIDAY
+}
+
+enum Role {
+  ADMIN
+}
+
+model User {
+  id            String        @id @default(auto()) @map("_id") @db.ObjectId
+  nationalCode  String        @unique
+  name          String        @unique
+  phone         String        @unique
+  motherName    String
+  fatherName    String
+  birthDate     DateTime
+  gender        String
+  address       String
+  city          String
+  paidAmounts    PaidAmount[]
+  userSubClasses UserSubClass[]
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+}
+
+model Class {
+  id            String       @id @default(auto()) @map("_id") @db.ObjectId
+  name          String       @unique
+  subClassCount Int
+  subClass      SubClass[]
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+}
+
+model SubClass {
+  id            String       @id @default(auto()) @map("_id") @db.ObjectId
+  classId       String       @db.ObjectId
+  name          String       
+  totalAmount   Int
+  teacher       String
+  day           Day
+  startTime     String
+  endTime       String
+  class         Class        @relation(fields: [classId], references: [id], onDelete: Cascade)
+  userSubClasses UserSubClass[]
+  paidAmounts   PaidAmount[]
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+}
+
+model UserSubClass {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId     String   @db.ObjectId
+  subClassId String   @db.ObjectId
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  subClass   SubClass @relation(fields: [subClassId], references: [id], onDelete: Cascade)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model PaidAmount {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId      String   @db.ObjectId
+  subClassId  String   @db.ObjectId
+  price       Int
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  subClass    SubClass @relation(fields: [subClassId], references: [id], onDelete: Cascade)
+  status        PayStatus?    @default(PENDING)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Admin {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  phone     String   @unique
+  email     String   @unique
+  role      Role   @default(ADMIN)
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
