@@ -39,7 +39,7 @@ export function getColumns(): ColumnDef<ClassTypes>[] {
         return (
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button size="icon" variant="ghost">
+              <Button size="icon" variant="outline">
                 <IconList />
               </Button>
             </DropdownMenuTrigger>
@@ -105,7 +105,7 @@ export function getColumns(): ColumnDef<ClassTypes>[] {
         return (
           <DropdownMenu dir="rtl">
             <DropdownMenuTrigger asChild>
-              <Button size="icon" variant="ghost">
+              <Button size="icon" variant="outline">
                 <Ellipsis />
               </Button>
             </DropdownMenuTrigger>

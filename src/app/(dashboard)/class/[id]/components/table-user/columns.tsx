@@ -295,7 +295,7 @@ export function getColumns({
         return (
           <DropdownMenu dir="rtl">
             <DropdownMenuTrigger asChild>
-              <Button size="icon" variant="ghost">
+              <Button size="icon" variant="outline">
                 <Ellipsis />
               </Button>
             </DropdownMenuTrigger>

@@ -12,10 +12,8 @@ import {
 } from "@/components/ui/dialog";
 import {
   Drawer,
-  DrawerClose,
   DrawerContent,
   DrawerDescription,
-  DrawerFooter,
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
@@ -70,7 +68,7 @@ export default function DeleteClass({
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild>{trigger}</DrawerTrigger>
-      <DrawerContent>
+      <DrawerContent className="pb-4">
         <DrawerHeader className="flex flex-col justify-center items-center gap-2">
           <DrawerTitle>حذف {name}</DrawerTitle>
           <DrawerDescription>
@@ -78,11 +76,6 @@ export default function DeleteClass({
           </DrawerDescription>
         </DrawerHeader>
         <ShowButton id={id} setOpen={setOpen} name={name} api={api} />
-        <DrawerFooter className="pt-2">
-          <DrawerClose asChild>
-            <Button variant="outline">Cancel</Button>
-          </DrawerClose>
-        </DrawerFooter>
       </DrawerContent>
     </Drawer>
   );
