@@ -34,9 +34,7 @@ function ClientForm({
           userId={userId}
           defaultValues={{
             name: data.name,
-            nationalCode: String(data.nationalCode),
             phone: data.phone,
-            motherName: data.motherName,
             fatherName: data.fatherName,
             birthDate: new Date(data.birthDate),
             gender: data.gender === "male" ? "male" : "female",

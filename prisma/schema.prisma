@@ -30,10 +30,8 @@ enum Role {
 
 model User {
   id            String        @id @default(auto()) @map("_id") @db.ObjectId
-  nationalCode  String        @unique
   name          String        @unique
   phone         String        @unique
-  motherName    String
   fatherName    String
   birthDate     DateTime
   gender        String

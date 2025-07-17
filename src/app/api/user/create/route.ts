@@ -4,23 +4,11 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const {
-      name,
-      nationalCode,
-      phone,
-      motherName,
-      fatherName,
-      birthDate,
-      gender,
-      address,
-      city,
-    } = body;
+    const { name, phone, fatherName, birthDate, gender, address, city } = body;
 
     if (
       !name ||
-      !nationalCode ||
       !phone ||
-      !motherName ||
       !fatherName ||
       !birthDate ||
       !gender ||
@@ -35,7 +23,7 @@ export async function POST(req: NextRequest) {
 
     const existingUser = await prisma.user.findFirst({
       where: {
-        OR: [{ nationalCode }, { phone }, { name }],
+        OR: [{ phone }, { name }],
       },
     });
 
@@ -49,9 +37,7 @@ export async function POST(req: NextRequest) {
     const user = await prisma.user.create({
       data: {
         name,
-        nationalCode,
         phone,
-        motherName,
         fatherName,
         birthDate,
         gender,

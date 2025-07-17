@@ -141,7 +141,7 @@ const AddUser = ({
                     </Avatar>
                     <div className="flex flex-col gap-1">
                       <p>{user.name}</p>
-                      <p>{user.nationalCode}</p>
+                      <p>{user.city}</p>
                     </div>
                   </div>
                   {isSelected(user.id) && (

@@ -3,10 +3,8 @@ import PaidAmountTypes from "../paid/PaidAmountTypes";
 
 interface UserTypes {
   id: string;
-  nationalCode: number;
   name: string;
   phone: string;
-  motherName: string;
   fatherName: string;
   birthDate: Date;
   gender: "male" | "female";

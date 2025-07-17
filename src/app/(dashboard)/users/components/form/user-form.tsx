@@ -51,9 +51,7 @@ function UserForm({
     resolver: zodResolver(userSchema),
     defaultValues: {
       name: defaultValues?.name ?? "",
-      nationalCode: defaultValues?.nationalCode ?? "",
       phone: defaultValues?.phone ?? "",
-      motherName: defaultValues?.motherName ?? "",
       fatherName: defaultValues?.fatherName ?? "",
       birthDate: defaultValues?.birthDate ?? new Date(),
       gender: defaultValues?.gender ?? "female",
@@ -155,27 +153,6 @@ function UserForm({
           />
           <FormField
             control={userForm.control}
-            name="nationalCode"
-            render={({ field }) => (
-              <FormItem className="flex flex-col gap-3">
-                <FormLabel>کد ملی</FormLabel>
-                <FormControl>
-                  <div className="flex items-center gap-2 px-4 py-1 border border-border rounded-lg">
-                    <IconInfoCircle size={16} />
-                    <Input
-                      type="text"
-                      className="shadow-none border-0 focus-visible:ring-0 focus-visible:ring-offset-0 w-full"
-                      placeholder="کد ملی را وارد کنید ..."
-                      {...field}
-                    />
-                  </div>
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={userForm.control}
             name="phone"
             render={({ field }) => (
               <FormItem className="flex flex-col gap-3">
@@ -187,27 +164,6 @@ function UserForm({
                       type="text"
                       className="shadow-none border-0 focus-visible:ring-0 focus-visible:ring-offset-0 w-full"
                       placeholder="شماره تلفن را وارد کنید ..."
-                      {...field}
-                    />
-                  </div>
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={userForm.control}
-            name="motherName"
-            render={({ field }) => (
-              <FormItem className="flex flex-col gap-3">
-                <FormLabel>نام مادر</FormLabel>
-                <FormControl>
-                  <div className="flex items-center gap-2 px-4 py-1 border border-border rounded-lg">
-                    <IconInfoCircle size={16} />
-                    <Input
-                      type="text"
-                      className="shadow-none border-0 focus-visible:ring-0 focus-visible:ring-offset-0 w-full"
-                      placeholder="نام مادر را وارد کنید ..."
                       {...field}
                     />
                   </div>

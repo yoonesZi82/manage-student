@@ -149,8 +149,8 @@ function ClassForm({ id }: { id?: string }) {
                             const value = parseInt(e.target.value);
                             if (isNaN(value)) {
                               field.onChange(0);
-                            } else if (value > 6) {
-                              field.onChange(6);
+                            } else if (value > 100) {
+                              field.onChange(100);
                             } else if (value < 1) {
                               field.onChange(1);
                             } else {

@@ -8,9 +8,7 @@ export async function PUT(req: NextRequest) {
       classId,
       userId,
       name,
-      nationalCode,
       phone,
-      motherName,
       fatherName,
       birthDate,
       gender,
@@ -23,9 +21,7 @@ export async function PUT(req: NextRequest) {
       !classId ||
       !userId ||
       !name ||
-      !nationalCode ||
       !phone ||
-      !motherName ||
       !fatherName ||
       !birthDate ||
       !gender ||
@@ -105,7 +101,7 @@ export async function PUT(req: NextRequest) {
 
     const existingUserWithSameCode = await prisma.user.findFirst({
       where: {
-        OR: [{ nationalCode }, { phone }],
+        OR: [{ phone }],
         NOT: { id: user.id },
       },
     });
@@ -121,9 +117,7 @@ export async function PUT(req: NextRequest) {
       where: { id: user.id },
       data: {
         name,
-        nationalCode,
         phone,
-        motherName,
         fatherName,
         birthDate,
         gender,

@@ -118,10 +118,6 @@ export function getColumns({
       },
     },
     {
-      accessorKey: "nationalCode",
-      header: "کد ملی",
-    },
-    {
       accessorKey: "name",
       header: "نام",
     },
@@ -138,10 +134,6 @@ export function getColumns({
           </Link>
         );
       },
-    },
-    {
-      accessorKey: "motherName",
-      header: "نام مادر",
     },
     {
       accessorKey: "fatherName",

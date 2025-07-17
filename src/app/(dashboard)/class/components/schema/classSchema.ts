@@ -6,8 +6,8 @@ const classSchema = z.object({
     .min(1, {
       message: "نام کلاس را وارد کنید",
     })
-    .max(50, {
-      message: "نام کلاس نمیتواند بیشتر از 50 کاراکتر باشد",
+    .max(100, {
+      message: "نام کلاس نمیتواند بیشتر از 100 کاراکتر باشد",
     }),
   subClassCount: z
     .number({ message: "تعداد زیر مجموعه کلاس را وارد کنید" })
