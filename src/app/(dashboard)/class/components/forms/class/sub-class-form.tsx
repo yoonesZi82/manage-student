@@ -145,7 +145,7 @@ function SubClassForm({ id }: { id?: string }) {
                 control={subClassForm.control}
                 name="name"
                 render={({ field }) => (
-                  <FormItem className="flex flex-col gap-3 col-span-2">
+                  <FormItem className="flex flex-col gap-3 col-span-1 lg:col-span-2">
                     <FormLabel>نام زیر مجموعه کلاس</FormLabel>
                     <FormControl>
                       <div className="flex items-center gap-2 px-4 py-1 border border-border rounded-lg">

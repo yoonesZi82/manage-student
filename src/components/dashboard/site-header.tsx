@@ -14,7 +14,7 @@ export function SiteHeader() {
   return (
     <header className="flex items-center border-b h-(--header-height) group-has-data-[collapsible=icon]/sidebar-wrapper:h-(--header-height) transition-[width,height] ease-linear shrink-0">
       <div className="flex justify-between items-center gap-2 px-4 lg:px-6 w-full container">
-        <div className="flex items-center gap-1 lg:gap-2 w-full">
+        <div className="flex items-center gap-1 lg:gap-2 w-[80%]">
           <SidebarTrigger className="-ml-1" />
           {isHomePage ? null : (
             <Separator
@@ -24,7 +24,7 @@ export function SiteHeader() {
           )}
           {isHomePage ? null : <BreadcrumbUi />}
         </div>
-        <p className="w-full text-muted-foreground text-sm text-left">
+        <p className="w-[20%] text-muted-foreground text-sm text-left">
           {iranianFormat}
         </p>
       </div>

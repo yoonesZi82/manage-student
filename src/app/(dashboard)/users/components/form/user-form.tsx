@@ -274,7 +274,7 @@ function UserForm({
             control={userForm.control}
             name="address"
             render={({ field }) => (
-              <FormItem className="flex flex-col gap-3 col-span-2">
+              <FormItem className="flex flex-col gap-3 col-span-1 lg:col-span-2">
                 <FormLabel>آدرس</FormLabel>
                 <FormControl>
                   <Textarea
@@ -292,7 +292,7 @@ function UserForm({
               control={userForm.control}
               name="paidAmount"
               render={({ field }) => (
-                <FormItem className="flex flex-col gap-3 col-span-2">
+                <FormItem className="flex flex-col gap-3">
                   <div className="flex flex-col items-start gap-1">
                     <FormLabel>مبلغ پرداختی (تومان)</FormLabel>
                     <small className="text-muted-foreground text-xs">

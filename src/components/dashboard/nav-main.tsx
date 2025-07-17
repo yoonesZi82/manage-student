@@ -17,6 +17,7 @@ import {
   SidebarMenuSub,
   SidebarMenuSubButton,
   SidebarMenuSubItem,
+  useSidebar,
 } from "@/components/ui/sidebar";
 import {
   Collapsible,
@@ -52,6 +53,7 @@ export function NavMain({
   const pathname = usePathname();
   const isActive = (url: string) => pathname === url;
   const [isHovered, setIsHovered] = useState(false);
+  const { setOpenMobile } = useSidebar();
   return (
     <SidebarGroup>
       <SidebarGroupContent className="flex flex-col gap-2">
@@ -79,6 +81,9 @@ export function NavMain({
                   variant="ghost"
                   className="justify-start w-full"
                   asChild
+                  onClick={() => {
+                    setOpenMobile(false);
+                  }}
                 >
                   <Link href="/class/create">
                     <IconPlus />
@@ -89,6 +94,9 @@ export function NavMain({
                   variant="ghost"
                   className="justify-start w-full"
                   asChild
+                  onClick={() => {
+                    setOpenMobile(false);
+                  }}
                 >
                   <Link href="/class">
                     <IconSchool />
@@ -104,6 +112,9 @@ export function NavMain({
             <SidebarMenuButton
               tooltip="داشبورد"
               className={cn(isActive("/") && "bg-primary/10 text-primary")}
+              onClick={() => {
+                setOpenMobile(false);
+              }}
             >
               <Link
                 href="/"
@@ -166,7 +177,12 @@ export function NavMain({
                           {item.items.length > 0 ? (
                             item.items.map((subItem) => (
                               <SidebarMenuSubItem key={subItem.title}>
-                                <SidebarMenuSubButton asChild>
+                                <SidebarMenuSubButton
+                                  asChild
+                                  onClick={() => {
+                                    setOpenMobile(false);
+                                  }}
+                                >
                                   <Link href={subItem.url}>
                                     {subItem.icon && <subItem.icon />}
                                     <span>{subItem.title}</span>
