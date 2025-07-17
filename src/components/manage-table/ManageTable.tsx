@@ -71,11 +71,11 @@ export default function ManageTable<T>({
   return (
     <div
       className={cn(
-        "flex flex-col gap-5 w-full  h-screen overflow-x-auto",
+        "flex flex-col gap-5 w-full   overflow-x-auto",
         open ? " max-w-[1170px]" : "max-w-full"
       )}
     >
-      <div className="rounded-lg h-screen overflow-hidden" ref={cardsRef}>
+      <div className="rounded-lg overflow-hidden" ref={cardsRef}>
         <Table>
           {isShowDescription && (
             <TableCaption className="pt-2 border-t border-border">
