@@ -226,6 +226,20 @@ export function getColumns({
       },
     },
     {
+      accessorKey: "amountRemaining",
+      header: "مبلغ مانده",
+      cell: ({ row }: { row: Row<UserTypes> }) => {
+        const userId = row.original.id;
+        const paidAmountUser = paidAmount.find(
+          (paid) => paid.subClass.id === classId && paid.user.id === userId
+        );
+
+        const amountRemaining = price - (paidAmountUser?.price ?? 0);
+
+        return <p>{formatPrice(amountRemaining)}</p>;
+      },
+    },
+    {
       accessorKey: "createdAt",
       header: "تاریخ ایجاد",
       cell: ({ row }: { row: Row<UserTypes> }) => {
