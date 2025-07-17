@@ -114,9 +114,13 @@ export function NavUser({
                 variant="outline"
                 size="icon"
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="rounded-lg"
+                className="group rounded-lg"
               >
-                {theme === "dark" ? <IconSun /> : <IconMoon />}
+                {theme === "dark" ? (
+                  <IconSun className="group-hover:rotate-180 transition-transform duration-600" />
+                ) : (
+                  <IconMoon />
+                )}
               </Button>
             </DropdownMenuLabel>
             <DropdownMenuSeparator />

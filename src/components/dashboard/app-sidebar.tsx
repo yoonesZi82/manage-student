@@ -46,7 +46,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="offcanvas" {...props}>
       <SidebarHeader className="flex flex-row justify-start items-center gap-10">
-        <Button variant="ghost" asChild className="hover:bg-transparent">
+        <Button variant="ghost" asChild className="hover:bg-transparent w-full">
           <Link href="/">
             <IconInnerShadowTop className="!size-5" />
             {!session ? (
